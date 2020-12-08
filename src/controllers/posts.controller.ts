@@ -14,7 +14,10 @@ class PostsController {
   ) => {
     try {
       const getAllPostsData: Post[] = await this.postsService.getAllPosts();
-      res.status(200).json({ data: getAllPostsData, message: "All posts" });
+      res.status(200).json({
+        data: getAllPostsData,
+        message: "All posts successfully retrived",
+      });
     } catch (error) {
       next(error);
     }

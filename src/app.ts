@@ -16,14 +16,7 @@ class App {
 
     this.app = express();
 
-    /**
-     * Default template engine is set to ejs
-     */
     this.app.set("view engine", "ejs");
-
-    /**
-     * If needed change default path to views dir.
-     */
     this.app.set("views", `${__dirname}/views`);
 
     this.initializeRoutes(routes);
@@ -38,7 +31,7 @@ class App {
 
   private initializeRoutes(routes: Route[]) {
     routes.forEach((route) => {
-      this.app.use("/", route.router);
+      this.app.use("/api", route.router);
     });
   }
 
